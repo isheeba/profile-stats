@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
       - uses: ./
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.USER_TOKEN }}
           readme: './OUTPUT.md'
       - name: Check Status
         run: |
