@@ -172,14 +172,16 @@ jobs:
       with:
         fetch-depth: 0
     - name: Generate README.md
-      uses: teoxoy/profile-readme-stats@v2
+      uses: isheeba/profile-stats@v3
       with:
-        token: ${{ secrets.USER_TOKEN }}
+        token: ${{ secrets.ACCESS_TOKEN }}
     - name: Update README.md
       run: |
         if [[ "$(git status --porcelain)" != "" ]]; then
         git config user.name github-actions[bot]
-        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        git config user.name isheeba/profile-stats
+        git config user.email profile-stats[bot]@isheeba.github.io
+   
         git add .
         git commit -m "Update README"
         git push
